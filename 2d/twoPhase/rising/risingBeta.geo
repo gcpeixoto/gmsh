@@ -28,14 +28,7 @@ Line(k+6) = {k+8, k+7};
 Line(k+7) = {k+7, k+6};
 Line(k+8) = {k+6, k+9};
 
-//Periodic Line k+7 {k+6,k+7} = k+5 {k+9,k+8};
-//Periodic Line {k+6,k+7} = {k+9,k+8};
-
-
-//Physical Line("wallNoSlip") = {k+6, k+7, k+8, k+5};
-//Physical Line("wallNoSlip") = {k+6, k+8};
-Physical Line("wallInvU") = {k+6};
-Physical Line("wallInflowV") = {k+8};
+Physical Line("wallInvU") = {k+6,k+8};
 Physical Line("wallLeft") = {k+7};
 Physical Line("wallRight") = {k+5};
 
