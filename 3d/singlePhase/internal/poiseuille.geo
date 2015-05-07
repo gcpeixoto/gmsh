@@ -72,7 +72,7 @@ nl = 20; // discretization line
 //Transfinite Line {13,14,15,16} = nl Using Bump 1;
 
 Physical Surface("wallNoSlip") = {18,20,22,24};
-//Physical Surface("wallInflow") = {11};
+//Physical Surface("wallInflowU") = {11};
 //Physical Surface("wallOutflow") = {12};
 Physical Surface("wallLeft") = {11};
 Physical Surface("wallRight") = {12};

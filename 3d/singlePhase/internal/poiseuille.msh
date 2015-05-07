@@ -4,7 +4,7 @@ $EndMeshFormat
 $PhysicalNames
 3
 2 1 "wallNoSlip"
-2 2 "wallInflow"
+2 2 "wallInflowU"
 2 3 "wallOutflow"
 $EndPhysicalNames
 $Nodes
