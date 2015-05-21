@@ -17,7 +17,7 @@ zMin = 0;
 
 r = 0.5;
 D = 2*r;
-Lx = 0.5*D;
+Lx = 1.0*D;
 
 // POINTS
 Point(1) = {xMin, yMin, zMin, cl};
