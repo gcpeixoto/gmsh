@@ -23,10 +23,7 @@ For t In {0:nb-1}
  xc = 0.0 + 1.0*D +(slug+r+r+r/2.0)*t;
  yc = 0.0;
  zc = 0.0;
-
- // include torus.geo file
- Include '../bubble-shapes/rabello-sphere.geo';
- //Include '/Users/gustavo/projects/db/gmsh/3d/bubbleShape/sphere.geo';
+ Include '../../bubble-shapes/rabello-sphere.geo';
 EndFor
 
 wallLength = D+D;

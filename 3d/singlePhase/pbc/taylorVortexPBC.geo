@@ -81,7 +81,7 @@ Line(L12) = {P4,P8};
 LL1 = newl;
 Line Loop(LL1) = {-L4,L12,L8,-L9};
 S1 = news;
-Plane Surface(S1) = {LL1};
+Plane Surface(S1) = {-LL1};
 
 // xMax
 LL2 = newl;
@@ -99,13 +99,13 @@ Plane Surface(S3) = {LL3};
 LL4 = newl;
 Line Loop(LL4) = {-L3,L11,L7,-L12};
 S4 = news;
-Plane Surface(S4) = {LL4};
+Plane Surface(S4) = {-LL4};
 
 // zMin
 LL5 = newl;
 Line Loop(LL5) = {L1,L2,L3,L4};
 S5 = news;
-Plane Surface(S5) = {LL5};
+Plane Surface(S5) = {-LL5};
 
 // zMax
 LL6 = newl;
@@ -126,30 +126,11 @@ Periodic Surface S3 {L1,L10,-L5,-L9} = S4 {-L3,L11,L7,-L12};
 // z 
 Periodic Surface S5 {L1,L2,L3,L4} = S6 {L5,L6,L7,L8};
 
-
-// 3D MESH
-//SL1 = news;
-//Surface Loop(SL1) = {S1,S2,S3,S4,S5,S6};
-//V1 = newreg;
-//Volume(V1) = {SL1};
-//Physical Surface("wallSlip") = {S1,S2,S3,S4,S5,S6};
-//Physical Volume("volume") = {V1};
-
 // PHYSICAL GROUPS
-//Physical Surface("wallMoving") = {S1,S2,S3,S4};
-//Physical Surface("wallP") = {S5,S6};
 
-
-// Test for setGenericBC()
-//Physical Surface("wallNoSlip") = {S3,S4,S5,S6};
-Physical Surface("wallNormalV") = {S3,S4};
-Physical Surface("wallNormalW") = {S5,S6};
+Physical Surface("wallInflowU") = {S3,S4,S5,S6};
 Physical Surface("wallLeft") = {S1};
 Physical Surface("wallRight") = {S2};
-
-// Step
-//Physical Surface("wallNoSlip") = {S1,S2,S3,S4,S5,S6};
-
 
 
 

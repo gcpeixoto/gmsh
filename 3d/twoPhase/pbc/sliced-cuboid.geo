@@ -4,13 +4,8 @@
  */
 
 // --- Refinement
-<<<<<<< HEAD
 b = 0.2; // drop
 w = 0.6;  // wall
-=======
-b = 0.06; // drop
-w = 0.3;  // wall
->>>>>>> 775bb17736a0fa4105bccbe1c2522a016bf21614
 
 x0 = 0;
 y0 = 0;
@@ -18,28 +13,21 @@ z0 = 0;
 
 Db = 1.0;
 rb = Db/2.0;
-<<<<<<< HEAD
 g = Db;
 s = Db;
 
 nb = 3;
-=======
 g = 0.25*Db;
 s = Db;
 
 nb = 1;
->>>>>>> 775bb17736a0fa4105bccbe1c2522a016bf21614
 
 LM = nb*Db + (nb - 1)*s;
 L = LM + 2*g;
 H = 5*Db;
 W = 5*Db;
 
-<<<<<<< HEAD
 N = 3; // number of divisions
-=======
-N = 1; // number of divisions
->>>>>>> 775bb17736a0fa4105bccbe1c2522a016bf21614
 
 dx = L/N;
 
@@ -208,69 +196,13 @@ k = (i+1)*k;
 
 EndFor // close for - drops
 
-<<<<<<< HEAD
 Physical Surface("wallLeft") = {kk+11};
 Physical Surface("wallRight") = {kk+12};
-
-
-Line Loop(60013) = {-19, -1010, -14, +1007};
-Plane Surface(60014) = {60013};
-Line Loop(60015) = {14, 1008, -15, -1011};
-Plane Surface(60016) = {60015};
-Line Loop(60017) = {15, 1009, 23, -1012};
-Plane Surface(60018) = {60017};
-Line Loop(60019) = {-18, -1007, +4, +1001};
-Plane Surface(60020) = {60019};
-Line Loop(60021) = {-4, -1008, +6, +1002};
-Plane Surface(60022) = {60021};
-Line Loop(60023) = {-6, -1009, +22, +1003};
-Plane Surface(60024) = {60023};
-Line Loop(60025) = {-17, -1001, -2, +1004};
-Plane Surface(60026) = {60025};
-Line Loop(60027) = {2, 1005, -3, -1002};
-Plane Surface(60028) = {60027};
-Line Loop(60029) = {3, 1006, 21, -1003};
-Plane Surface(60030) = {60029};
-Line Loop(60031) = {-20, -1004, +28, +1010};
-Plane Surface(60032) = {60031};
-Line Loop(60033) = {1011, 30, -1005, -28};
-Plane Surface(60034) = {60033};
-Line Loop(60035) = {1012, 24, -1006, -30};
-Plane Surface(60036) = {60035};
-
-Physical Surface("wallNoSlip") = {60020,60022,60024,60032,60034,60036,60014,60018,60028};
-Physical Surface("wallInflowW") = {60026,60030};
-Physical Surface("wallInflowWNeg") = {60016};
-
-k = 10000;
-For i In {1:nb}
-Physical Surface(Sprintf("bubble%g",i)) = {k+1,k+2,k+3,k+4};
-=======
-// Manual setting
-Line Loop(10013) = {1004, 16, -1002, -12};
-Plane Surface(10014) = {10013};
-Line Loop(10015) = {9, 1001, -13, -1002};
-Plane Surface(10016) = {10015};
-Line Loop(10017) = {1004, -15, -1003, 11};
-Plane Surface(10018) = {10017};
-Line Loop(10019) = {10, 1003, -14, -1001};
-Plane Surface(10020) = {10019};
-
-
-Physical Surface("wallLeft") = {kk+11};
-Physical Surface("wallRight") = {kk+12};
-//Physical Surface("wallOutflow") = {10014};
-Physical Surface("wallInflowVTransverse") = {-10020};
-Physical Surface("wallNormalW") = {-10016,-10018};
-Physical Surface("wallOutflow") = {10014};
-//Physical Surface("wallInflowWTransverse") = {-10016};
-//Physical Surface("wallNormalV") = {-10020,10014};
 
 
 k = 10000;
 For i In {1:nb}
 Physical Surface(Sprintf("bubble%g",i)) = {(k+1),(k+2),(k+3),(k+4)};
->>>>>>> 775bb17736a0fa4105bccbe1c2522a016bf21614
 k = (i+1)*k;
 EndFor
 

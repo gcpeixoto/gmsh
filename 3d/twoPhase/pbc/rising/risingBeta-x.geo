@@ -2,7 +2,7 @@
 
 nb = 1;
 b1 = 0.06;
-wall = 1.0;
+wall = 0.6;
 
 D = 1.0;
 r = 0.5*D;
@@ -11,15 +11,19 @@ pert = (0.0/100.0)*D/2.0;
 
 For t In {0:nb-1}
  // bubble's coordinates
- xc = 0.0 - D +(slug+r+r+r/2.0)*t;
+ //xc = 0.0+(slug+r+r+r/2.0)*t; // standard
+ //xc = -0.5*D + (slug+r+r+r/2.0)*t; // 1 bubble - gap D
+ xc = -D + (slug+r+r+r/2.0)*t; // 1 bubble - gap 0.5D
+ //xc = -1.25*D + (slug+r+r+r/2.0)*t; // 1 bubble - gap 0.25D
  yc = 0.0;
  zc = 0.0;
 
- // include torus.geo file
- Include '../bubble-shapes/rabello-sphere.geo';
+ Include '../../bubble-shapes/rabello-sphere.geo';
 EndFor
 
-wallLength = 3*D;
+//wallLength = 3*D; // gap D
+wallLength = 2*D; // gap 0.5D
+//wallLength = 1.5*D; // gap 0.25D
 
 /*
  *              6           2
@@ -33,11 +37,11 @@ wallLength = 3*D;
  * */
 
 k=10000;
-Point(k+1) = {-2.5*D,         0.0,         0.0, wall}; // center
-Point(k+2) = {-2.5*D,         0.0,  5*D+pert, wall}; // right
-Point(k+3) = {-2.5*D,         0.0, -D*5-pert, wall}; // left
-Point(k+4) = {-2.5*D,  5*D-pert,         0.0, wall}; // up
-Point(k+5) = {-2.5*D, -D*5+pert,         0.0, wall}; // down
+Point(k+1) = {-2.0*D,         0.0,         0.0, wall}; // center
+Point(k+2) = {-2.0*D,         0.0,  4*D+pert, wall}; // right
+Point(k+3) = {-2.0*D,         0.0, -D*4-pert, wall}; // left
+Point(k+4) = {-2.0*D,  4*D-pert,         0.0, wall}; // up
+Point(k+5) = {-2.0*D, -D*4+pert,         0.0, wall}; // down
 Ellipse(k+1) = {k+4, k+1, k+1, k+2};
 Ellipse(k+2) = {k+2, k+1, k+1, k+5};
 Ellipse(k+3) = {k+5, k+1, k+1, k+3};
@@ -49,8 +53,7 @@ Extrude {wallLength, 0, 0} {
 }
 Periodic Surface k+6 {k+1,k+2,k+3,k+4} = k+28 {k+8,k+9,k+10,k+11};
 
-//Physical Surface('wallNoSlip') = {k+27, k+23, k+19, k+15};
-Physical Surface('wallInflowZeroU') = {k+27, k+23, k+19, k+15};
+Physical Surface('wallNoSlip') = {k+27, k+23, k+19, k+15};
 //Physical Surface('wallNoSlip') = {k+27, k+23, k+19, k+15,-(k+6),k+28};
 Physical Surface('wallLeft') = {-(k+6)};
 Physical Surface('wallRight') = {k+28};
